@@ -259,9 +259,9 @@ package {
 		
 		protected function handleAPICall(result:Object, fail:Object):void {
 			if (result) {
-				outputText.appendText("\n\nRESULT:\n" + JSON.encode(result)); 
+				outputText.appendText("\n\nRESULT:\n" + JSON.stringify(result));
 			} else {
-				outputText.appendText("\n\nFAIL:\n" + JSON.encode(fail)); 
+				outputText.appendText("\n\nFAIL:\n" + JSON.stringify(fail));
 			}
 		}
 		

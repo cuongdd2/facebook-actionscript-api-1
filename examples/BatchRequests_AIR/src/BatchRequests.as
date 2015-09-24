@@ -281,7 +281,7 @@ package {
 		protected function handleGetInfoComplete(result:Object):void {
 			if (!("error" in result.body)) {
 				myInfoText.alpha = 1;
-				myInfoText.text = JSON.encode(result.body);
+				myInfoText.text = JSON.stringify(result.body);
 			} else {
 				myInfoText.text = "An Error Occured.";
 			}

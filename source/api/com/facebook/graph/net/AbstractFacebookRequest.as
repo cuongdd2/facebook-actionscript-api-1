@@ -31,10 +31,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 package com.facebook.graph.net {
-	
-	import com.adobe.images.PNGEncoder;
-	import com.adobe.serialization.json.JSON;
-	import com.facebook.graph.utils.PostRequest;
+
+import com.adobe.images.PNGEncoder;
+import com.facebook.graph.utils.PostRequest;
 	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
@@ -236,8 +235,11 @@ package com.facebook.graph.net {
 				handleURLLoaderSecurityError,
 				false, 0, true
 			);
-			
-			urlLoader.load(urlRequest);
+			try {
+				urlLoader.load(urlRequest);
+			} catch(error:*) {
+				trace(error);
+			}
 		}
 		
 		/**
@@ -260,7 +262,7 @@ package com.facebook.graph.net {
 			_success = true;
 			
 			try {
-				_data = JSON.decode(_rawResult);
+				_data = JSON.parse(_rawResult);
 			} catch (e:*) {
 				_data = _rawResult;
 				_success = false;
@@ -305,7 +307,7 @@ package com.facebook.graph.net {
 			
 			if (_rawResult != '') {
 				try {
-					_data = JSON.decode(_rawResult);
+					_data = JSON.parse(_rawResult);
 				} catch (e:*) {
 					_data = {type:'Exception', message:_rawResult};
 				}
@@ -325,7 +327,7 @@ package com.facebook.graph.net {
 			_rawResult = (event.target as URLLoader).data;
 			
 			try {
-				_data = JSON.decode((event.target as URLLoader).data);
+				_data = JSON.parse((event.target as URLLoader).data);
 			} catch (e:*) {
 				_data = event;
 			}

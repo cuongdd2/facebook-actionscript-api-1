@@ -120,7 +120,7 @@ package com.facebook.graph.core {
 			
 							getLoginStatus: function() {
 								FB.getLoginStatus( function( response ) {
-									if( response.authResponse ) {
+									if( response.status === 'connected' && response.authResponse ) {
 										FBAS.updateSwfAuthResponse( response.authResponse );
 									} else {
 										FBAS.updateSwfAuthResponse( null );

@@ -97,7 +97,7 @@ package {
 		
 		protected function onApiCall(response:Object, fail:Object):void {
 			if (response) {								
-				outputTxt.appendText("RESPONSE:\n" + JSON.encode(response) + "\n");	
+				outputTxt.appendText("RESPONSE:\n" + JSON.stringify(response) + "\n");
 				
 				//profile pic
 				var req:URLRequest = new URLRequest(Facebook.getImageUrl(response.id, "square"));				
@@ -108,7 +108,7 @@ package {
 				if (response.location != null) { profileHolder.nameTxt.appendText(response.location.name); }
 				
 			} else {
-				outputTxt.appendText("FAIL:\n" + JSON.encode(fail) + "n");
+				outputTxt.appendText("FAIL:\n" + JSON.stringify(fail) + "n");
 			}
 		}	
 		
