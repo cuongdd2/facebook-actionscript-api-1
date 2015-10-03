@@ -32,8 +32,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package com.facebook.graph.net {
 
-import com.adobe.images.PNGEncoder;
-import com.facebook.graph.utils.PostRequest;
+	import com.adobe.images.PNGEncoder;
+	import com.facebook.graph.utils.PostRequest;
 	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
